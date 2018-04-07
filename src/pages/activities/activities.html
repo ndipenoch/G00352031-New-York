@@ -1,0 +1,74 @@
+<!--
+  Generated template for the ActivitiesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>activities</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+    <h1><marquee  ><font color="#000080">Best Things To Do in New York!!</font></marquee></h1>
+    
+
+    <div class="row">
+       <div class="col col-33" style="text-align:center;">
+         <ol class="row">
+
+            <li class="col"><i class=" icon ion-star"> 
+               
+             <font color="red">Helicopter Tours</font>
+             <li (click)="OpenHelicopter()"> <img width="200" height="150" src="../assets/imgs/helicopter.jpg" > </li>
+
+             <font color="red">Bus Tours</font>
+              <li (click)="OpenBus()"> <img width="200" height="150" src="../assets/imgs/bus.jpg" ></li>
+              
+
+             <font color="red">Dinner Cruises</font>
+              <li (click)="OpenCruise()"> <img width="200" height="150" src="../assets/imgs/cruise.jpg" ></li>
+             </i>
+           
+           </li>
+
+           <li class="col"><i class="icon ion-star">
+
+               <font color="red">Horseback Riding in Central Park</font>
+               <li (click)="OpenRiding()"> <img width="200" height="150" src="../assets/imgs/riding.jpg" > </li>
+
+               <font color="red">Hiking and Cycling at Bear Mountain.</font>
+                <li (click)="OpenCycling()"> <img width="200" height="150" src="../assets/imgs/cycling.jpg" ></li>
+                
+
+               <font color="red">Summertime Fun in Coney Island.</font>
+                <li (click)="OpenSummertime()"> <img width="200" height="150" src="../assets/imgs/summer.jpg" ></li>
+               
+           </i></li>
+           <li class="col"><i class="icon ion-star">
+
+               <font color="red">Cherry Blossom Festival</font>
+               <li (click)="OpenFestival()"> <img width="200" height="150" src="../assets/imgs/festival.jpg" > </li>
+
+               <font color="red">Astoria Park Pool</font>
+                <li (click)="OpenSwimming()"> <img width="200" height="150" src="../assets/imgs/pool.jpg" ></li>
+                
+
+               <font color="red">Staten Island Ferry</font>
+                <li (click)="OpenFerryPage()"> <img width="200" height="150" src="../assets/imgs/ferry.jpg" ></li>
+               
+           </i></li>
+           
+         </ol>
+       </div>
+     </div>
+
+    
+    
+    
+</ion-content>
