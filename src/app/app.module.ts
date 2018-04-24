@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import {IonicStorageModule} from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PlacesPage } from '../pages/places/places';
@@ -26,6 +27,12 @@ import {SummertimePage} from '../pages/summertime/summertime';
 import {FestivalPage} from '../pages/festival/festival';
 import {SwimmingPage} from '../pages/swimming/swimming';
 import {FerryPage} from '../pages/ferry/ferry';
+import { GalariesPage } from '../pages/galaries/galaries';
+import { VideoPage} from './../pages/video/video';
+import { WeatherPage} from './../pages/weather/weather';
+import { WeatherProvider } from '../providers/weather/weather';
+import { HttpClientModule } from '@angular/common/http';
+import {FeedbackPage} from '../pages/feedback/feedback';
 
 @NgModule({
   declarations: [
@@ -51,10 +58,16 @@ import {FerryPage} from '../pages/ferry/ferry';
     FestivalPage,
     SwimmingPage,
     FerryPage,
+    GalariesPage,
+    VideoPage,
+    WeatherPage,
+    FeedbackPage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,11 +93,17 @@ import {FerryPage} from '../pages/ferry/ferry';
     FestivalPage,
     SwimmingPage,
     FerryPage,
+    GalariesPage,
+    VideoPage,
+    WeatherPage,
+    FeedbackPage,
   ],
   providers: [
     StatusBar,
+    Geolocation,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WeatherProvider
   ]
 })
 export class AppModule {}

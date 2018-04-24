@@ -1,0 +1,70 @@
+<!--
+  Generated template for the FeedbackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>feedback</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list radio-group [(ngModel)]="myName">
+
+        <ion-item>
+
+            <ion-label fixed>First Name</ion-label>
+            <ion-input type="text" value=""></ion-input>
+          </ion-item>
+          
+        </ion-list> 
+        
+        <ion-item>
+            <ion-label>Gender</ion-label>
+            <ion-select [(ngModel)]="gender">
+              <ion-option value="M">Male</ion-option>
+              <ion-option value="F">Female</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Age Group</ion-label>
+              <ion-select [(ngModel)]="Age">
+                <ion-option value="young adults">18-25</ion-option>
+                <ion-option value="middle age">26-40</ion-option>
+                <ion-option value="men">41-60</ion-option>
+                <ion-option value="old men">61 and Above</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Continent</ion-label>
+                <ion-select [(ngModel)]="Continent">
+                  <ion-option value="Africa">Africa</ion-option>
+                  <ion-option value="America">America</ion-option>
+                  <ion-option value="Australia">Australia</ion-option>
+                  <ion-option value="Asia">Asia</ion-option>
+                  <ion-option value="Europe">Europe</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label>Rate this App</ion-label>
+                  <ion-select [(ngModel)]="rate">
+                    <ion-option value="Excellent">Excellent</ion-option>
+                    <ion-option value="Good">Good</ion-option>
+                    <ion-option value="Okay">Okay</ion-option>
+                    <ion-option value="Bad">Bad</ion-option>
+                    <ion-option value="Disaster">Disaster</ion-option>
+                  </ion-select>
+                </ion-item>
+
+        <button ion-button (click)="saveStatus()">SEND</button> 
+
+</ion-content>

@@ -10,21 +10,17 @@
 
 
 
-    <h1><marquee  behavior="alternate"  > <font color="#000080">Welcome New To York!</font></marquee></h1>
+    <h1><marquee  ><font color="#000080">Welcome To New York {{myName}}!</font></marquee></h1>
    
-    Here are some Fun activites and Places to Visit in New York City.
+    <h1> <font color="#000080">Fun Activites and Places to Visit {{myName}}!</font></h1>
 
-  
     <ul> 
-        <li (click)="openPlaces()">Places To Visit.</li>
-
-        <li (click)="openActivities()">Fun Activities To do.</li>
-
-        <li (click)="openPlaces()"> Galary </li>
-
-        <li (click)="openPlaces()"> Video </li>
-        
-        <li (click)="openPlaces()"> Weather </li> 
+        <li><button ion-button (click)="openPlaces()">Places To Visit. </button></li>
+        <li><button ion-button (click)="openActivities()">Fun Activities To do.</button></li>
+        <li><button ion-button (click)="openGalaries()"> Galleries  </button></li>
+        <li><button ion-button (click)="openVideo()"> Video </button></li>
+        <li><button ion-button (click)="openWeather()"> Weather</button></li>
+        <li><button ion-button (click)="openFeedback()"> Feedback</button></li>
         </ul>
 
 </ion-content>
