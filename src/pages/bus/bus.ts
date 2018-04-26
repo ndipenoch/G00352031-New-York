@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DirectionPage} from './../direction/direction';
 
 /**
  * Generated class for the BusPage page.
@@ -22,4 +23,8 @@ export class BusPage {
     console.log('ionViewDidLoad BusPage');
   }
 
+  openDirections() { 
+    this.navCtrl.push(DirectionPage); 
+  }
+  
 }

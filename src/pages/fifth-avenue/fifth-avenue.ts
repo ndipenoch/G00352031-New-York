@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DirectionPage} from './../direction/direction';
 
-/**
- * Generated class for the FifthAvenuePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,5 +16,9 @@ export class FifthAvenuePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FifthAvenuePage');
   }
-
+  
+  openDirections() { 
+    this.navCtrl.push(DirectionPage); 
+  }
+  
 }

@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RidingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {DirectionPage} from './../direction/direction';
 
 @IonicPage()
 @Component({
@@ -20,6 +14,10 @@ export class RidingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RidingPage');
+  }
+
+  openDirections() { 
+    this.navCtrl.push(DirectionPage); 
   }
 
 }

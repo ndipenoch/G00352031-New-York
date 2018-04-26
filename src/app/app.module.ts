@@ -30,9 +30,12 @@ import {FerryPage} from '../pages/ferry/ferry';
 import { GalariesPage } from '../pages/galaries/galaries';
 import { VideoPage} from './../pages/video/video';
 import { WeatherPage} from './../pages/weather/weather';
+import { MapPage} from './../pages/map/map';
+import { DirectionPage} from './../pages/direction/direction';
 import { WeatherProvider } from '../providers/weather/weather';
 import { HttpClientModule } from '@angular/common/http';
 import {FeedbackPage} from '../pages/feedback/feedback';
+
 
 @NgModule({
   declarations: [
@@ -62,6 +65,8 @@ import {FeedbackPage} from '../pages/feedback/feedback';
     VideoPage,
     WeatherPage,
     FeedbackPage,
+    MapPage,
+    DirectionPage,
   ],
   imports: [
     BrowserModule,
@@ -97,13 +102,15 @@ import {FeedbackPage} from '../pages/feedback/feedback';
     VideoPage,
     WeatherPage,
     FeedbackPage,
+    MapPage,
+    DirectionPage,
   ],
   providers: [
     StatusBar,
     Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WeatherProvider
+    WeatherProvider,
   ]
 })
 export class AppModule {}

@@ -20,9 +20,10 @@ export class FeedbackPage {
   constructor(public navCtrl: NavController,private storage:Storage, public navParams: NavParams) {
   }
 
+
   saveStatus(){ 
     this.storage.set("myName", this.myName);
-     this.navCtrl.pop(); 
+    this.navCtrl.pop(); 
     }
 
   ionViewDidLoad() {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Geolocation } from '@ionic-native/geolocation';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {DirectionPage} from './../direction/direction';
 
 /**
  * Generated class for the LibertyPage page.
@@ -18,30 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LibertyPage {
  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad LibertyPage');
   }
 
-  openLibertDir(){
-    
-    this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
-     
-     let watch = this.geolocation.watchPosition();
-     watch.subscribe((data) => {
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-     }); 
-      
+  openDirections() { 
+    this.navCtrl.push(DirectionPage); 
   }
- 
-
+  
 }

@@ -22,9 +22,7 @@ export class WeatherPage {
   ionViewDidLoad() {
     this.mp.getdegrees().subscribe(data=> 
       {
-     
       this.degrees = data.Search;
-      
     }
  )
   console.log("I am alive!");

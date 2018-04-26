@@ -8,6 +8,7 @@ import { WeatherPage} from './../weather/weather';
 import {WeatherProvider} from '../../providers/weather/weather';
 import {FeedbackPage} from './../feedback/feedback';
 import {Storage} from '@ionic/storage';
+import {MapPage} from './../map/map';
 
 
 @Component({
@@ -49,8 +50,12 @@ export class HomePage {
     this.navCtrl.push(WeatherPage);
    }
 
-   openFeedback() { 
+   openFeedback(){ 
     this.navCtrl.push(FeedbackPage);
+   }
+
+   openGPS() { 
+    this.navCtrl.push(MapPage);
    }
 
    ionViewWillEnter(){ 

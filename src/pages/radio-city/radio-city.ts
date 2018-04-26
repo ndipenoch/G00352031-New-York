@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RadioCityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {DirectionPage} from './../direction/direction';
 
 @IonicPage()
 @Component({
@@ -22,4 +16,8 @@ export class RadioCityPage {
     console.log('ionViewDidLoad RadioCityPage');
   }
 
+  openDirections() { 
+    this.navCtrl.push(DirectionPage); 
+  }
+  
 }
