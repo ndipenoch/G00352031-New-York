@@ -1,15 +1,8 @@
-import { Component,ViewChild, ElementRef} from '@angular/core';
+import { Component,ViewChild, ElementRef,NgZone} from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation} from '@ionic-native/geolocation';
 
 declare var google;
-
-/**
- * Generated class for the MapPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,59 +13,91 @@ export class MapPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  
-  constructor(public navCtrl: NavController,private geolocation: Geolocation) {
-  }
+  latLng:any;
+  markers:any;
+  mapOptions:any;  
+  isKM:any=500;
+  isType:any="";
+  service: any;
+  autocompleteItems:any;
+  geocoder:any;
+  GooglePlaces:any;
+  nearbyItems:any;
 
+  
+  constructor(public navCtrl: NavController,private geolocation: Geolocation,private ngZone: NgZone) {
+  }
+ 
   ionViewDidLoad(){
-    this.loadMap(); 
+    this.loadMap();
   }
 
+   /**
+ * load map and get current location from the position of the coordoniate of the longitude and latitute
+ */
   loadMap(){
- 
     this.geolocation.getCurrentPosition().then((position) => {
- 
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
+    this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    console.log('latLng',this.latLng);
+      this.mapOptions = {
+        center: this.latLng,
+        zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
- 
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
- 
-    }, (err) => {
-      console.log(err);
-    });
+      }   
     
+this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
+
+    }, (err) => {
+      alert('err '+err);
+    });
+
   }
  
-  
-  addMarker(){
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
-    });
-   
-    let content = "<h4>Information!</h4>";         
-   
-    this.addInfoWindow(marker, content);
-   
+ /**
+ * serch for nearby places using PlacesService library from Google API stored in index.html
+ */
+  nearbyPlace(){
+    this.loadMap();
+    this.markers = [];
+    let service = new google.maps.places.PlacesService(this.map);
+    service.nearbySearch({
+              location: this.latLng,
+              radius: this.isKM,
+              types: [this.isType]
+            }, (results, status) => {
+                this.callback(results, status);
+            });
   }
 
-  addInfoWindow(marker, content){
- 
-    let infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-   
-    google.maps.event.addListener(marker,'click', () => {
-      infoWindow.open(this.map, marker);
-    });
-   
+  callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        this.createMarker(results[i]);
+      }
+    }
   }
+
+  /**
+ * create a maker for each place found
+ */
+  createMarker(place){
+    var placeLoc = place;
+    console.log('placeLoc',placeLoc);
+    this.markers = new google.maps.Marker({
+        map: this.map,
+        position: place.geometry.location
+    });
+
+    let infowindow = new google.maps.InfoWindow();
+
+    google.maps.event.addListener(this.markers, 'click', () => {
+      this.ngZone.run(() => {
+        infowindow.setContent(place.name);
+        infowindow.open(this.map, this.markers);
+      });
+    });
+  }
+
 
   
 }

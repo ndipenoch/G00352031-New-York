@@ -6,12 +6,6 @@ import {Storage} from '@ionic/storage';
 
 declare var google;
 
-/**
- * Generated class for the DirectionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,7 +14,7 @@ declare var google;
 })
 export class DirectionPage {
 
-  
+ 
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('directionsPanel') directionsPanel: ElementRef;
   map: any;
@@ -28,6 +22,7 @@ export class DirectionPage {
   constructor(public navCtrl: NavController,private geolocation: Geolocation,private storage:Storage) {
   }
   
+ 
   saveCity(){ 
     this.storage.set("city", this.city); 
     }
@@ -39,6 +34,10 @@ export class DirectionPage {
     console.log('ionViewDidLoad DirectionPage');
   }
 
+
+  /**
+ * get your current location and load map
+ */
   loadMap(){
    
     this.geolocation.getCurrentPosition().then((position) => {
@@ -68,6 +67,10 @@ ionViewWillEnter(){
   })
  }
 
+ /**
+ * start navigation from current location to the destination enter/store in the storage
+ * DRIVING is the mode of navigation, which can be switch to WALKING, CYCLING..ect in the code.
+ */
 startNavigating(){
 
   this.geolocation.getCurrentPosition().then((position) => {

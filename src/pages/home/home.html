@@ -8,19 +8,17 @@
 
 <ion-content padding>
 
-
-
+     <!--make the h1 sentence to move along with the display firstname store in the storage-->
     <h1><marquee  ><font color="#000080">Welcome To New York {{myName}}!</font></marquee></h1>
-   
     <h1> <font color="#000080">Fun Activites and Places to Visit {{myName}}!</font></h1>
 
     <ul> 
         <li><button ion-button (click)="openPlaces()">Places To Visit. </button></li>
         <li><button ion-button (click)="openActivities()">Fun Activities To do.</button></li>
-        <li><button ion-button (click)="openGalaries()"> Galleries  </button></li>
+        <li><button ion-button (click)="openGalaries()"> Gallery  </button></li>
         <li><button ion-button (click)="openVideo()"> Video </button></li>
         <li><button ion-button (click)="openWeather()"> Weather</button></li>
-        <li><button ion-button (click)="openGPS()">Get Your Location</button></li>
+        <li><button ion-button (click)="openGPS()">Nearby Places</button></li>
         <li><button ion-button (click)="openFeedback()"> Feedback</button></li>
         
         </ul>

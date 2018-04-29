@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 
 
-/**
- * Generated class for the FeedbackPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-feedback',
@@ -20,7 +13,10 @@ export class FeedbackPage {
   constructor(public navCtrl: NavController,private storage:Storage, public navParams: NavParams) {
   }
 
-
+/**
+ * store the first name
+ * automatically take the user to the homepage
+ */
   saveStatus(){ 
     this.storage.set("myName", this.myName);
     this.navCtrl.pop(); 
