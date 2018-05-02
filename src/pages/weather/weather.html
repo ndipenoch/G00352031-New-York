@@ -1,26 +1,26 @@
 
 <ion-header>
 
-    <ion-navbar>
-      <ion-title>Weather</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding>
-    <!--make the h1 sentence to move-->
-    <h1><marquee  ><font color="#000080">Weekly Forecast.</font></marquee></h1>
+  <ion-navbar>
+    <ion-title>Weather</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--make the h1 sentence to move-->
+  <h1><marquee  ><font color="#000080">Weekly Forecast.</font></marquee></h1>
+ 
+  <!--display the dat gotten from the weather API in the weather provider-->
+<ul>
+<li *ngFor="let degree of degrees"> 
+
+    <p> <font color="#FFFFFF">{{degree.Day}}     {{degree.Temp}}°    {{degree.description}}</font></p>
    
-    <!--display the dat gotten from the weather API in the weather provider-->
-  <ul>
-  <li *ngFor="let degree of degrees"> 
-  
-      <p> <font color="#FFFFFF">{{degree.Day}}     {{degree.Temp}}°    {{degree.description}}</font></p>
-     
-      <ion-thumbnail item-start> 
-          <img width="50" height="50" src="{{degree.Poster}}">
-         </ion-thumbnail>   
-  </ul>
-  
-  </ion-content>
+    <ion-thumbnail item-start> 
+        <img width="50" height="50" src="{{degree.Poster}}">
+       </ion-thumbnail>   
+</ul>
+
+</ion-content>
